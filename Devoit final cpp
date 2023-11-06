@@ -1,0 +1,93 @@
+Nom : Ibn El Mokadem    Prenom : Zineb 
+
+
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+class Stack {
+   private: 
+  list<int> piles ;
+  int dimension ;
+   public:
+   // c'est constructure par defaut :
+  Stack(int d=20): dimension(d){}
+  // c'est un operateur qui ajouter les elements de pile :
+  Stack operator<<(int n){
+    if(piles.size() == dimension){
+        cout<<"la piles est deja plien"<<endl;
+    }
+  else {
+    piles.push_back(n);
+  }
+  }
+  // c'est un operteur qui supprimer la derniere element de pile :
+  Stack operator>>(int m){
+    if (piles.empty()){
+      cout<<"la piles est deja vide "<<endl;
+    }
+    else if(m!=piles.back()) {
+         throw m;
+
+    }
+    else {
+     m=piles.back();
+     piles.pop_back();
+    }
+  }
+  // c'est un operateur qui verifier si la pile est plein ou non :
+ int operator++(){
+    if(piles.size() == dimension){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+
+ }
+ // c'est un operateur qui verifier si la pile est vide ou non :
+  int operator--(){
+    if(piles.empty() ){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+ }
+ void afficher (){
+  for( int entier :piles ){
+    cout<< entier <<" ";
+  }
+
+ }
+
+};
+main(){
+ Stack p;
+ int n1,n2,n3;
+ int v,vide,plein;
+ cout<<"entrer la valeur de n1 et n2 et n3 que vous voules ajouter a la liste :"<<endl;
+ cin>>n1>>n2>>n3;
+ p.afficher();
+ p<<n1<<n2<<n3;
+ try(){
+ cout<<"enter la valeur de supprimer";
+ cin>>V;
+ p>>v
+ }
+ catch(int m){
+    cerr<<"cette element n'est pas la derniers element de pile";
+ }
+ plein=p++;
+ vide=p--;
+ cout<<"la pile est plein? "<<plein<<endl;
+ cout<<"la pile est vide ? "<<vide<<endl;
+
+
+
+
+}
+
